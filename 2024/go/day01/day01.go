@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
 	"sort"
 	"strconv"
@@ -16,7 +15,7 @@ func main() {
 
 	input_file, err := os.Open("input.txt")
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer input_file.Close()
 
@@ -30,11 +29,11 @@ func main() {
 
 		left_id, err := strconv.Atoi(ids[0])
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 		right_id, err := strconv.Atoi(ids[1])
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 
 		left_ids = append(left_ids, left_id)
@@ -42,7 +41,7 @@ func main() {
 	}
 
 	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	// sorting the lists is needed for part 1 and helps speed up part 2
